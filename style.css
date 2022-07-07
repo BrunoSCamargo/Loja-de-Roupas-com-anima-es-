@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+   font-size: 62.5%;
+
+  --ff-header:'Epilogue', sans-serif;
+  
+  --bg:250;
+  --bg-color: hsl(var(--bg), 22%, 20%);
+
+  --sp-card: hsl(var(--bg), 100%, 11%);
+
+  --fc-colorp: hsl(var(--bg), 50%, 80%);
+  --fc-colorb: hsl(var(--bg), 0%, 100%);
+
+  --fs-body: 1.6rem;
+  --fs-headingh1: 4rem;
+}
+
+body {
+  font-family: var(--ff-header);
+
+  color: var(--fc-colorb);
+  background-color: var(--bg-color);
+
+  text-align: center;
+
+  font-size: var(--fs-body);
+}
+
+.page {
+  max-width: 33rem;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+header {
+  margin: 10rem 0 8rem;
+
+  animation-name: topdown;
+  animation-duration: 700ms;
+}
+
+header p {
+  color: var(--fc-colorp);
+  text-transform: uppercase;
+  
+
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 3.2rem;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 1.7rem;
+ 
+}
+
+header h1 {
+  font-size: var(--fs-headingh1);
+  font-weight: 800;
+  line-height: 4.8rem;
+}
+
+main {
+  display: grid;
+  gap: 3.2rem;
+
+  animation-name: botomdown;
+  animation-duration: 1s;
+  animation-fill-mode: backwards;
+  animation-delay: 200ms;
+}
+
+.card {
+  position: relative
+}
+
+.card img {
+  height: 41.6rem;
+  object-fit: cover;
+
+  border-radius: 0.6rem;
+
+  transition: all 400ms;
+  filter: contrast(0.6);
+}
+
+.card img:hover {
+   transform: scale(1.1);
+   opacity: 0.7;
+
+  filter: contrast(1);
+}
+
+.card h2 {
+  position: absolute;
+  bottom: 5.1rem;
+  left: 2.8rem;
+
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 4.8rem; 
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+
+}
+
+.card h2 span {
+  border-radius: 2rem;
+  background-color: var(--fc-colorb);
+
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 3.2rem;
+
+  color: var(--sp-card);
+
+  padding: 0 1.6rem;
+  height: 3.8rem;
+
+  display: inline-flex;
+  align-items: center;
+
+  width:fit-content;
+
+  animation-name: h2span;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes botomdown {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes h2span {
+  0% {
+   opacity:0;
+   transform: translateY(-15px)
+  }
+
+  100% {
+    opacity:1;
+   transform: translateY(0px)
+  }
+}
+
+@media (min-width: 700px) {
+
+  :root {
+     --fs-headingh1: 5.6rem;
+   }
+ 
+  .page{
+   max-width: 117rem;
+   padding: 0 5rem;
+  }
+  main {
+   grid-template-columns: 1fr 1fr;
+  }
+
+ }
+
+ 
+ @media (min-width: 900px) {
+ 
+  main {
+   grid-template-areas:"a b b" "c c d" ;
+  }
+ 
+  main div:nth-child(1) {
+   grid-area: a;
+  }
+  main div:nth-child(2) {
+   grid-area: b;
+  }
+  main div:nth-child(3) {
+   grid-area: c;
+  }
+  main div:nth-child(4) {
+   grid-area: d;
+  }
+ }
